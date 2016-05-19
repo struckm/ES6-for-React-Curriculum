@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import Forecast from '../components/Forecast';
-import { getForcast } from '../helpers/api';
+import { getForecast } from '../helpers/api';
 
 class ForecastContainer extends Component {
   constructor() {
     super();
-
     this.state = {
       isLoading: true,
       forecastData: {}
@@ -13,28 +12,28 @@ class ForecastContainer extends Component {
   }
 
   componentDidMount () {
-    this.makeRequest(this.props.routeParams.city)
+    this.makeRequest(this.props.routeParams.city);
   }
 
   componentWillReceiveProps (nextProps) {
-    this.makeRequest(nextProps.routeParams.city)
+    this.makeRequest(nextProps.routeParams.city);
   }
 
   makeRequest (city) {
-    getForcast(city)
-      .then(function (forecastData) {
+    getForecast(city)
+      .then((forecastData) => {
         this.setState({
           isLoading: false,
-          forecastData: forecastData
+          forecastData
         });
-      }.bind(this));
+      });
   }
 
   handleClick (weather) {
     this.context.router.push({
       pathname: '/detail/' + this.props.routeParams.city,
       state: {
-        weather: weather
+        weather
       }
     })
   }
@@ -44,7 +43,7 @@ class ForecastContainer extends Component {
       <Forecast
         city={this.props.routeParams.city}
         isLoading={this.state.isLoading}
-        handleClick={this.handleClick}
+        handleClick={(weather) => this.handleClick(weather)}
         forecastData={this.state.forecastData} />
     )
   }
