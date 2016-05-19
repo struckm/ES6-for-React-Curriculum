@@ -1,7 +1,6 @@
 import React from 'react';
-import utils from '../helpers/utils';
+import { convertTemp } from '../helpers/utils';
 import DayItem from './DayItem';
-const convertTemp = utils.convertTemp;
 
 const styles = {
   descriptionContainer: {

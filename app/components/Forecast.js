@@ -1,6 +1,5 @@
 import React, { PropTypes } from 'react';
-import utils from '../helpers/utils';
-const getDate = utils.getDate;
+import { getDate } from '../helpers/utils';
 import DayItem from './DayItem';
 
 const styles = {
