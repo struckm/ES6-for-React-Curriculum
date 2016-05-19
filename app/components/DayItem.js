@@ -1,9 +1,8 @@
-var React = require('react');
-var PropTypes = React.PropTypes;
-var utils = require('../helpers/utils');
-var getDate = utils.getDate;
+import React, { PropTypes } from 'react';
+import utils from '../helpers/utils';
+const getDate = utils.getDate;
 
-var styles = {
+const styles = {
   dayContainer: {
     display: 'flex',
     alignItems: 'center',
@@ -22,8 +21,8 @@ var styles = {
 }
 
 function DayItem (props) {
-  var date = getDate(props.day.dt);
-  var icon = props.day.weather[0].icon;
+  const date = getDate(props.day.dt);
+  const icon = props.day.weather[0].icon;
   return (
     <div style={styles.dayContainer} onClick={props.handleClick}>
       <img style={styles.weather} src={'./app/images/weather-icons/' + icon + '.svg'} alt='Weather' />
@@ -40,4 +39,4 @@ DayItem.propTypes = {
   handleClick: PropTypes.func,
 }
 
-module.exports = DayItem;
+export default DayItem;

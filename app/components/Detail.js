@@ -1,9 +1,9 @@
-var React = require('react');
-var utils = require('../helpers/utils');
-var DayItem = require('./DayItem');
-var convertTemp = utils.convertTemp;
+import React from 'react';
+import utils from '../helpers/utils';
+import DayItem from './DayItem';
+const convertTemp = utils.convertTemp;
 
-var styles = {
+const styles = {
   descriptionContainer: {
     fontSize: 34,
     fontWeight: 100,
@@ -28,4 +28,4 @@ function Detail (props) {
   )
 }
 
-module.exports = Detail;
+export default Detail
